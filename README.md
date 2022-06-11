@@ -7,55 +7,40 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## Ипотечный калькулятор на laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Тестовое задание по вакансии backend-developer
+Задача: разработать заполнение квартир и программ ипотеки в базу, и пересчет платежей по ипотеке после срабатывания событий изменения элемента
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Требования:
+Язык программирования PHP. Фреймворк symfony, laravel, yii2.
+Результат
+публичная ссылка на сайт для проверки добавления элементов и пересчета платежей,
+FTP-доступы для проверки кода.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Описание:
 
-## Learning Laravel
+Создать 2 сущности: Квартиры и Программы ипотеки, связать их.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Сущность Квартиры имеет свойства:
+Название
+Тип квартиры
+Цена
+Программа ипотеки - множественная привязка элемента сущности программы ипотеки
+Ежемесячный платеж по программе
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Сущность Программа ипотеки:
+Название
+Процентная ставка - число с процентом
+Максимальный срок - лет
+Минимальный первоначальный взнос - проценты
 
-## Laravel Sponsors
+Создать страницы просмотра списка элементов и страницы по добавлению, изменению квартир и программ ипотеки в базу. Формы добавления, изменения элемента содержат поля как в сущности.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Формулу расчета ипотеки можно взять из интернета, она типовая. https://www.raiffeisen.ru/wiki/formuly-dlya-samostoyatelnogo-rascheta-ipoteki/ 
 
-### Premium Partners
+https://mortgage-calculator.ru/%D1%84%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0-%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%B0-%D0%B8%D0%BF%D0%BE%D1%82%D0%B5%D0%BA%D0%B8/ 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+Необходимо реализовать пересчет ежемесячных платежей по всем программам, привязанным к квартире в момент изменения элемента сущности Квартира или Программа ипотеки, так как на платеж влияет и цена, и условия ипотеки.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Визуал не имеет значение, главное работающие расчеты.
